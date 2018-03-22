@@ -48,7 +48,17 @@ namespace Arcanoid
             RndLevel = Level.Parse(b);
             #endregion
         }
+        public void Undead()
+        {
+            Ball = new Ball();
+            Ball.Bounds = new Rectangle(Bounds.Width / 2, (int)(Bounds.Height * 0.9f), 10, 10);
+            Ball.Velocity = new Point(0, -5);
+            Ball.Speed = 5;
 
+            Paddle = new Paddle();
+            Paddle.Bounds = new Rectangle(Bounds.Width / 2, (int)(Bounds.Height * 0.95f), 80, 15);
+            Paddle.Speed = 6;
+        }
         /// <summary>
         /// Все блоки уничтожены?
         /// </summary>

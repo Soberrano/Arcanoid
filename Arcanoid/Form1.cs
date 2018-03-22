@@ -18,6 +18,7 @@ namespace Arcanoid
         {
             InitializeComponent();
 
+            int flag = 5;
             game = new Game();
             game.Bounds = pFG.ClientRectangle;
             game.InitLevel();
@@ -26,16 +27,24 @@ namespace Arcanoid
             Timer tm = new Timer { Enabled = true, Interval = 20 };
             tm.Tick += delegate
             {
-                var dt = 0.1f;
+                float dt = 0.1f;
                 game.Update(dt);
                 pFG.Invalidate();
 
                 if (game.IsGameOver())//мяч потерян
                 {
+                    flag--;
                     tm.Stop();
-                    MessageBox.Show("Game over!");
-                    game.InitLevel();//начало новой игры
+                    MessageBox.Show($"У вас осталось всего лишь {flag} жизней!");
+                    game.Undead();
                     tm.Start();
+                    if (flag <= 0)
+                    {
+                        tm.Stop();
+                        MessageBox.Show("Game over!");
+                        game.InitLevel();//начало новой игры
+                        tm.Start();
+                    }
                 }
 
                 if (game.IsLevelCompleted())//уровень пройден?

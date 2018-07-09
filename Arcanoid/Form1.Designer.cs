@@ -31,11 +31,12 @@
             this.pFG = new Arcanoid.PanelForGaming();
             this.SuspendLayout();
             // 
-            // panelForGaming1
+            // pFG
             // 
             this.pFG.BackColor = System.Drawing.Color.Black;
+            this.pFG.Game = null;
             this.pFG.Location = new System.Drawing.Point(138, 85);
-            this.pFG.Name = "panelForGaming1";
+            this.pFG.Name = "pFG";
             this.pFG.Size = new System.Drawing.Size(636, 363);
             this.pFG.TabIndex = 0;
             // 
@@ -46,7 +47,7 @@
             this.ClientSize = new System.Drawing.Size(920, 529);
             this.Controls.Add(this.pFG);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Arcanoid";
             this.ResumeLayout(false);
 
         }
